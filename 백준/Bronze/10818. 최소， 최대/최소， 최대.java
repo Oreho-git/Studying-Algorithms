@@ -1,18 +1,20 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> list = new ArrayList<>();
 
-        int N = scanner.nextInt();
-        for (int i = 0; i < N; i++) {
-            list.add(scanner.nextInt());
+        int N = scanner.nextInt(); // 입력 개수
+        if (N <= 0) {
+            System.out.println("0 0");
+            return;
         }
-        int max = list.get(0);
-        int min = list.get(0);
-        for (int num : list) {
+
+        int min = Integer.MAX_VALUE; // 최솟값 초기화
+        int max = Integer.MIN_VALUE; // 최댓값 초기화
+
+        for (int i = 0; i < N; i++) {
+            int num = scanner.nextInt();
             if (num > max) {
                 max = num;
             }
@@ -21,6 +23,6 @@ class Main {
             }
         }
 
-        System.out.println(min+" "+max);
+        System.out.println(min + " " + max);
     }
 }
